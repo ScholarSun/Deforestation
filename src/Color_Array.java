@@ -17,7 +17,7 @@ public class Color_Array {
 	public int[][] bluecol;
 	
 
-	public Color_Array() throws IOException
+	public Color_Array() throws Exception
 	{
 		BufferedImage red = ImageIO.read(new File ("pics/Red0.jpg"));
 		BufferedImage green = ImageIO.read(new File ("pics/Green0.jpg"));
@@ -26,9 +26,6 @@ public class Color_Array {
 		sizex = imgsize('x',red);
 		sizey = imgsize('y',red);
 		
-		System.out.println(sizex);
-
-		System.out.println(sizey);
 		/*JFrame frame = new JFrame();
 		frame.getContentPane().setLayout(new FlowLayout());
 		frame.getContentPane().add(new JLabel(new ImageIcon(img)));
@@ -46,12 +43,14 @@ public class Color_Array {
 		greencol = CreateArray(green);
 		bluecol = CreateArray(blue);
 		
-		for (int i = 0; i < redcol.length; i++) {
+		for (int i = 0; i < redcol.length; i=i+100) {
 		   System.out.println("");
-			for (int j = 0; j < redcol[0].length; j++) {
+			for (int j = 0; j < redcol[0].length; j=j+100) {
 		        System.out.print(redcol[i][j]);
 		    }
 		}
+		Analysis a = new Analysis(redcol,greencol,bluecol);
+		
 	}
 
 	public static int imgsize (char dir, BufferedImage pic)
@@ -68,10 +67,10 @@ public class Color_Array {
 	{
 		int[][] temp = new int [sizey][sizex];
 		
-		for(int i = 0; i<temp.length-1; i++)
+		for(int i = 0; i<temp.length-1; i+=100)
 		{
 			
-			for (int j = 0; j<temp[0].length-1; j++)
+			for (int j = 0; j<temp[0].length-1; j+=100)
 			{
 				/*int temp2 = pic.getRGB(i, j);
 				temp[i][j] = temp2 & 0x000000ff;*/
