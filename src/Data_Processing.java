@@ -20,8 +20,8 @@ public class Data_Processing {
 		//String resp = http.sendGet();
 		//ArrayList<String> hey = extract(resp);
 		//downloadSat(hey);
-		
 		Color_Array a = new Color_Array();
+		
 	}
 
 	public static void downloadSat(ArrayList<String> bob) throws Exception {
