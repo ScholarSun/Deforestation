@@ -17,9 +17,6 @@ public class Data_Processing {
 		Data_Processing http = new Data_Processing();
 
 		System.out.println("Testing 1 - Send Http GET request");
-		//String resp = http.sendGet();
-		//ArrayList<String> hey = extract(resp);
-		//downloadSat(hey);
 		Color_Array a = new Color_Array();
 		
 	}

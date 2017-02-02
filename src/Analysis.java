@@ -11,7 +11,7 @@ public class Analysis {
 
 	public Analysis(int[][] sr, int[][] sg, int[][] sb) throws Exception {
 		tree = new int[sr.length][sr[0].length];
-		int[][] resized = new int[((sr.length)/100)+1][((sr[0].length)/100)+1];
+		int[][] resized = new int[((sr.length) / 100) + 1][((sr[0].length) / 100) + 1];
 
 		// Sifts Through
 		for (int i = 0; i < sr.length; i += 100) {
@@ -30,21 +30,34 @@ public class Analysis {
 			System.out.println("");
 			for (int j = 0; j < tree[0].length; j += 100) {
 				System.out.print(tree[i][j]);
-				resized[(i/100)][(j/100)] = tree[i][j];
+				resized[(i / 100)][(j / 100)] = tree[i][j];
 			}
 		}
 		produceimg(resized);
 	}
 
 	protected void produceimg(int[][] bitmap) {
-		BufferedImage imageOut = new BufferedImage(bitmap[0].length, bitmap.length, BufferedImage.TYPE_INT_RGB);
-		for (int i = 0; i < bitmap.length; i ++) {
-			for (int j = 0; j < bitmap[0].length; j ++) {
-				int r = 0;
-				int g = 0;
-				int b = 0;
+		BufferedImage imageOut = new BufferedImage((bitmap[0].length)*4, (bitmap.length)*4, BufferedImage.TYPE_INT_RGB);
+		int r = 0;
+		int g = 0;
+		int b = 0;
+		for (int i = 0; i < bitmap.length; i++) {
+			for (int j = 0; j < bitmap[0].length; j++) {
+				if (bitmap[i][j] == 1) {
+					r = 139;
+					g = 69;
+					b = 16;
+				} else if (bitmap[i][j] == 0) {
+					r = 0;
+					g = 100;
+					b = 0;
+				} else {
+					r = 0;
+					g = 0;
+					b = 0;
+				}
 				int col = (r << 16) | (g << 8) | b;
-				imageOut.setRGB(j, i, col);
+				imageOut.setRGB(i, j, col);
 			}
 		}
 		JFrame frame = new JFrame();
